@@ -60,6 +60,7 @@ Every sync gets the full tests and a security check before its pull request merg
   - new process launches, shell use, and commands read from repository files (`t3.json`, project settings, manifests);
   - new RPC methods, HTTP routes and MCP tools, and the scope each one needs;
   - new outbound endpoints, telemetry or uploads (our builds contact no upstream hosted service by default and read no other app's login files);
+  - the README's "No telemetry" line still holds: analytics has no default key or host, telemetry identity stays a random install id (no provider sign-in files or accounts), mobile trace export and crash-report dispatch stay disabled by default, and an unconfigured server rerun under `strace` (as in [outbound.md](./design/outbound.md#how-this-was-checked)) contacts no analytics or upstream host;
   - file access outside the workspace, archive and XML parsing;
   - inbound webhooks, and URLs the server fetches for a client;
   - new dependencies, release-age exemptions and CI workflows;

@@ -16,9 +16,11 @@ The server sends product usage events only when both `T3CODE_POSTHOG_KEY` and
 `T3CODE_POSTHOG_HOST` are set in its environment. It then sends them to that host;
 whoever runs the host receives them. Events include the provider, model, reasoning
 effort, permission mode, turn and request results, duration, release channel, and
-token counts when available, associated with hashed account or installation
-identifiers. They do not include prompts, responses, file contents, authentication
-tokens, conversation IDs, raw provider events, or child-agent output.
+token counts when available, associated with a hashed random installation identifier and, when available, hashed
+client-device or hosted-relay account identifiers, never identifiers derived from your
+Claude or Codex sign-in. Routine usage events do not include prompts, responses, file contents, authentication
+tokens, conversation IDs, raw provider events, or child-agent output. With analytics configured, a feedback report you approve can include
+scrubbed conversation text if you choose to include it.
 
 To keep events off even when those variables are set, set
 `T3CODE_TELEMETRY_ENABLED=false` in the server's environment before starting it. An
